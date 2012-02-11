@@ -31,7 +31,7 @@ if 'DATABASE_URL' in os.environ:
     else:
         assert False, "Unknown scheme %s" % url.scheme
 
-    SQLALCHEMY_DATABASE_URI = '%s:///%s:%s@%s:%s/%s' % (
+    SQLALCHEMY_DATABASE_URI = '%s://%s:%s@%s:%s/%s' % (
         scheme,
         url.username,
         url.password,
