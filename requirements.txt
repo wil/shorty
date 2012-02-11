@@ -3,3 +3,4 @@ Flask-WTF
 Flask-SQLAlchemy
 Flask-Script
 gunicorn==0.13.4
+psycopg2
