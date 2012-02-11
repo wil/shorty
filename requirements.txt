@@ -2,3 +2,4 @@ Flask==0.8
 Flask-WTF
 Flask-SQLAlchemy
 Flask-Script
+gunicorn==0.13.4
