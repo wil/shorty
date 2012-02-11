@@ -3,13 +3,13 @@
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 
-from shorty import settings
+from shorty import config
 from shorty.context_processors import static_files
 from shorty.core import setup_routing
 
 # setup application
 app = Flask('shorty')
-app.config.from_object(settings)
+app.config.from_object(config)
 
 # setup database
 db = SQLAlchemy(app)
