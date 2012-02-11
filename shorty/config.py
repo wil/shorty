@@ -24,17 +24,19 @@ if 'DATABASE_URL' in os.environ:
 
     if url.scheme == 'postgres':
         scheme = 'postgresql+psycopg2'
+        port = int(url.port or 5432)
     elif url.scheme == 'mysql':
         scheme = 'mysql+mysqldb'
+        port = int(url.port or 3306)
     else:
         assert False, "Unknown scheme %s" % url.scheme
 
-    SQLALCHEMY_DATABASE_URI = '%s:///%s:%s@%s%s/%s' % (
+    SQLALCHEMY_DATABASE_URI = '%s:///%s:%s@%s:%s/%s' % (
         scheme,
         url.username,
         url.password,
         url.hostname,
-        ':%s' % url.port if url.port else '',
+        port,
         url.path[1:],
     )
 else:
